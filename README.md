@@ -25,7 +25,8 @@ Under the CSS Classes in the Advanced tab of the Elementor form widget, add a cl
 Insert the following JS Snippet using your preferred method such as a Code Snippets plugin, an HTML widget or enqueuing the script in your child theme.
 Screenshot of the advanced tab of the Elementor form showing the CSS Classes set to dis-ele-form
 
-'''<script>
+```
+<script>
 document.addEventListener('DOMContentLoaded', function () {
     // Find all forms with class name "dis-ele-form"
     var forms = document.querySelectorAll('.dis-ele-form');
@@ -46,11 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
-
+```
 
 **Using Modern JS Syntax:**
 
-'''<script>
+```
+<script>
 document.addEventListener('DOMContentLoaded', () => {
     // Find all forms with class name "dis-ele-form"
     const forms = document.querySelectorAll('.dis-ele-form');
@@ -68,3 +70,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+```
