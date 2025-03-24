@@ -1,7 +1,10 @@
 # elementor-form-disable-select-dropdown-default-placeholder
 Disable the placeholder for select dropdown on elementor forms
+
 Special Thanks: David Denedo (https://daveden.co.uk/tutorials/add-placeholders-to-select-fields-in-elementor-pro-form)
 
+
+**INTRO:**
 By default, Elementor’s Pro Form’s select fields lack placeholders, unlike other input fields. This isn’t a problem specific to Elementor but is related to the nature of group fields in HTML.
 
 
