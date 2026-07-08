@@ -1,41 +1,35 @@
-# elementor-form-disable-select-dropdown-default-placeholder
-Disable the placeholder for select dropdown on elementor forms
+# Elementor form: disable select dropdown default placeholder
 
-Special Thanks: David Denedo (https://daveden.co.uk/tutorials/add-placeholders-to-select-fields-in-elementor-pro-form)
+Disables the default placeholder option in Elementor Pro Form select dropdowns, so a required select field does not pre-select its first option and the placeholder cannot be chosen or announced as a real option by screen readers.
 
+Special thanks: David Denedo (https://daveden.co.uk/tutorials/add-placeholders-to-select-fields-in-elementor-pro-form)
 
-**INTRO:**
-By default, Elementor’s Pro Form’s select fields lack placeholders, unlike other input fields. This isn’t a problem specific to Elementor but is related to the nature of group fields in HTML.
+## Background
 
+By default, Elementor Pro Form select fields lack placeholders, unlike other input fields. This is not a problem specific to Elementor but is related to the nature of group fields in HTML.
 
-**Step-by-step solution**
-**1. Creating a Required Select Field**
-To set up a required select field, you simply need to toggle the “Required” option. But, the trouble is that it selects the first option by default which defeats the purpose of a required input.
+## Step-by-step solution
 
+### 1. Create a required select field
 
-**2. Toggle Required Option**
-To prevent a default selected option, we add an invalid option that prompts users to make a selection to avoid form errors. This is achieved by adding a blank space as the first option of the select field.
+To set up a required select field, toggle the "Required" option. The trouble is that it selects the first option by default, which defeats the purpose of a required input.
 
+### 2. Add a blank first option
 
-**3. Add a blank first option to the select field**
-Adding a placeholder
-To further improve user experience, we can replace the blank space with a key-value pair, where the key is our placeholder text and the value is blank. In Elementor form terms, the option should be as “placeholder text | .”
+To prevent a default selected option, add an invalid option that prompts users to make a selection to avoid form errors. This is achieved by adding a blank space as the first option of the select field.
 
+### 3. Add placeholder text with a blank value
 
-**4. Add placeholder text with blank value**
-Addressing accessibility concerns
-While the above method works, the invalid option remains selectable and is read by screen readers as one of the options. To prevent this, we need to add two attributes, “hidden” and “disabled” to the option. Unfortunately, Elementor currently does not natively support adding custom attributes, so we turn to Custom JS.
+To further improve the user experience, replace the blank space with a key-value pair, where the key is your placeholder text and the value is blank. In Elementor form terms, write the option as `placeholder text | ` (with a space after the pipe).
 
+### 4. Hide the placeholder option with JS (accessibility)
 
-**Implementing custom JS for accessibility**
-To ensure the placeholder option cannot be selected, follow these steps:
+While the above method works, the invalid option remains selectable and is read by screen readers as one of the options. To prevent this, the option needs the `hidden` and `disabled` attributes. Elementor does not natively support adding custom attributes, so we use a small JS snippet:
 
+1. Under CSS Classes in the Advanced tab of the Elementor form widget, add the class name `dis-ele-form`.
+2. Insert the following JS snippet using your preferred method, such as the Code Snippets plugin, an HTML widget, or enqueuing the script in your child theme.
 
-Under the CSS Classes in the Advanced tab of the Elementor form widget, add a class name of **“dis-ele-form“**.
-Insert the following JS Snippet using your preferred method such as a Code Snippets plugin, an HTML widget or enqueuing the script in your child theme.
-Screenshot of the advanced tab of the Elementor form showing the CSS Classes set to dis-ele-form
-
-```
+```html
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     // Find all forms with class name "dis-ele-form"
@@ -59,10 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 ```
 
+Using modern JS syntax:
 
-**Using Modern JS Syntax:**
-
-```
+```html
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     // Find all forms with class name "dis-ele-form"
@@ -83,7 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 ```
 
-**NOTE:**
+## Notes
 
-You can reuse the same class name (‘dis-ele-form’) on multiple forms on the page and it would work just find. You don’t have to rewrite the javascript.
-If you want it to work on all Elementor forms on your page, then you can replace (‘.dis-ele-form’) with (‘.elementor-form’).
+- You can reuse the same class name (`dis-ele-form`) on multiple forms on the page and it will work just fine. You do not have to rewrite the JavaScript.
+- If you want it to work on all Elementor forms on your page, replace `.dis-ele-form` with `.elementor-form` in the script.
+
+## Support
+
+If this saved you time, you can support my work:
+
+[<img src="https://storage.ko-fi.com/cdn/kofi2.png?v=6" alt="Buy Me a Coffee at ko-fi.com" height="36">](https://ko-fi.com/H2H81I6YY1)
